@@ -10,7 +10,7 @@ import mongoose from "mongoose";
 // import netflixData from "./data/netflix-titles.json";
 // import topMusicData from "./data/top-music.json";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
+const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/project-mongo";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -33,13 +33,13 @@ const { Schema } = mongoose;
 const userSchema = new Schema ({
   name: String,
   age: Number,
-  alive: boolean
+  alive: Boolean
 });
 
 const User = mongoose.model("User", userSchema)
 
 const songSchema = new Schema ({
-  id: 1,
+  id: Number,
     trackName: String,
     artistName: String,
     genre: String,
